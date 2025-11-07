@@ -1,0 +1,146 @@
+<script>
+
+
+    /* Creación de cronista
+    v0.1 Piero Funes
+    Este programa es un pequeño cronista que clasifica cada año en una etapa historica
+    */
+
+ //Definición de variables
+ var anio_inicio = prompt ("Introduce el año incial");
+ var anio_final = prompt ("Introduce el año final");
+ var nombre_cronista = prompt ("Introduce tu nombre");
+ var anio;
+ var Aniotemp ;
+
+
+ // Uso de estructura if
+
+ if (anio_inicio > anio_final){
+    let Aniotemp = anio_inicio;
+    anio_inicio=anio_final;
+    anio_final = Aniotemp;
+    
+    
+ }
+
+document.write ("<br>Hola, soy ", nombre_cronista , " y voy a relatar los hechos mas importantes entre los anios ", anio_inicio , " y ", anio_final ,".<br><br>");
+
+//declaro funciones
+
+    //Funcion que clasifica el periodo histórico
+
+function clasificaPeriodo(anio){
+    if (anio < 0){
+        return ("Antes de nuestra era")
+    } else if (anio >=0 && anio <= 499){
+        return ("Antiguedad tardia")
+    } else if (anio >= 500 && anio <= 1499){
+        return ("Edad media")
+    } else if (anio >= 1500 && anio <= 1789){
+        return ("Edad moderna")
+    } else if (anio >=1790 && anio <= 1945){
+        return ("Edad contemporanea")
+    } else if (anio >= 1946){
+        return ("Contemporanea reciente")
+
+    }
+    }
+
+    //funcion que calcula el siglo numericamente
+    
+function Aritmetica(anio){
+ anio = anio/100 
+ anio = Math.ceil (anio)
+ return anio
+}
+
+//Cambia el siglo numericamente a romano
+
+function NombresSiglo(siglo){
+    switch (siglo) {
+        case 1:
+            return ("I")
+            break;
+        case 2:
+            return ("II")
+            break;
+        case 3:
+            return ("III")
+            break;
+        case 4:
+            return ("IV")
+            break;
+        case 5:
+            return ("V")
+            break;
+        case 6:
+            return ("VI")
+            break;
+        case 7:
+            return ("VII")
+            break;
+        case 8:
+            return ("VIII")
+            break;
+        case 9:
+            return ("IX")
+            break;
+        case 10:
+            return ("X")
+            break;
+        case 11:
+            return ("XI")
+            break;
+        case 12:
+            return ("XII")
+            break;
+        case 13:
+            return ("XIII")
+            break;
+        case 14:
+            return ("XIV")
+            break;
+        case 15:
+            return ("XV")
+            break;
+        case 16:
+            return ("XVI")
+            break;
+        case 17:
+            return ("XVII")
+            break;
+        case 18:
+            return ("XVIII")
+            break;
+        case 19:
+            return ("XIX")
+            break;
+        case 20:
+            return ("XX")
+            break;
+        case 21:
+            return ("XXI")
+            break;        
+    
+    
+
+
+    }
+}
+
+
+
+//Bucle principal
+
+for (anio = anio_inicio; anio <= anio_final; anio++){
+    document.write ("Anioo ",anio," - ",NombresSiglo(Aritmetica(anio))," - ",clasificaPeriodo(anio)+"<br>")
+}
+
+
+
+//Fecha de Informe
+var fecha = new Date ();
+document.write ("<br> Informe generado el ",fecha.getDate()," / ", fecha.getMonth() + 1 ," / ",fecha.getFullYear() ," por " , nombre_cronista ,".<br>");
+
+</script>

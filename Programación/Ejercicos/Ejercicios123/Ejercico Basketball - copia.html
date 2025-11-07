@@ -1,0 +1,87 @@
+<script>
+    /*
+    Ejercico de gestión de partido de baloncesto
+    v0.1 Piero Funes
+    Este programa gestiona un partido de baloncesto    
+    
+    */
+
+    //Se importan las librerías (No hay librerias que importar)
+
+    //Declaración de variables
+    var equipo1 = prompt ("Introduce el nombre del equipo 1");
+    var equipo2 = prompt ("Introduce el nombre del equipo 2");
+    var puntos_equipo1 = 0;
+    var puntos_equipo2 = 0;
+    
+
+    document.write(equipo1,  " va "  ,puntos_equipo1,  " puntos y "  ,equipo2,  " va "  ,puntos_equipo2,  " puntos.<br> <br>");
+   
+    
+
+  // Para quien es el punto
+  function paraQuienEsElPunto(){
+    var paraequipo = Math.random()
+    if (paraequipo < 0.5){
+        document.write ("Anota ",equipo1,"<br>");
+    }else {
+        document.write ("Anota",equipo2,"<br>");
+        }
+    }
+        //Funcion para añadir puntos equipo 1
+
+    function añadirPuntosEquipo1(){
+        var cuantosPuntos = Math.random()
+     if (cuantosPuntos < 0.33){
+        document.write (equipo1, "Marca 1 punto<br>");
+        puntos_equipo1 = puntos_equipo1 + 1;}
+        else if (cuantosPuntos >= 0.33 < 0.66){
+            document.write (equipo1, "Marca dos puntos<br>");
+            puntos_equipo1 = puntos_equipo1 + 2;}
+            else if (cuantosPuntos >= 0.66){
+                document.write (equipo1, "Marca tres puntos <br>");
+                puntos_equipo1 = puntos_equipo1 + 3;
+            }
+    }  
+        
+        //función para añadir puntos equipo 2
+
+    function añadirPuntosEquipo2(){
+        var cuantosPuntos = Math.random()
+        if (cuantosPuntos < 0.33){
+              document.write (equipo2, "Marca 1 punto<br>");
+              puntos_equipo2 = puntos_equipo2 + 1;}
+        else if (cuantosPuntos >=0.33 < 0.66){
+            document.write (equipo2, "Marca dos puntos<br>");
+            puntos_equipo2 = puntos_equipo2 + 2;}
+            else if (cuantosPuntos >= 0.66){
+                document.write (equipo2, "Marca tres puntos <br>");
+                puntos_equipo2 = puntos_equipo2 + 3;
+            }
+
+        }
+        
+    
+    //Codigo puro 
+    if (paraQuienEsElPunto() == equipo1){
+        añadirPuntosEquipo1();
+    } else {
+        añadirPuntosEquipo2();
+    }
+
+
+    //Bucle del partido
+    
+    
+    for (var cuartos = 1 ;cuartos < 5; cuartos++) {
+    for (var jugadas = 1; jugadas < 21; jugadas++)
+
+    document.write("Estamos en el cuarto ",cuartos," y en la jugada ",jugadas,"<br> La jugada la hace", paraQuienEsElPunto , "<br> Anota ")
+    
+    }    
+  
+     
+
+
+
+</script>

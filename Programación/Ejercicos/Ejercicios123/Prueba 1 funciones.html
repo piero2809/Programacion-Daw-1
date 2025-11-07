@@ -1,0 +1,82 @@
+<script>
+    /*
+    Ejercico de gestión de partido de baloncesto
+    v0.1 Piero Funes
+    Este programa gestiona un partido de baloncesto    
+    
+    */
+
+    //Se importan las librerías (No hay librerias que importar)
+
+    //Declaración de variables
+    var equipo1 = prompt ("Introduce el nombre del equipo 1");
+    var equipo2 = prompt ("Introduce el nombre del equipo 2");
+    var puntos_equipo1 = 0;
+    var puntos_equipo2 = 0;
+    
+
+    document.write(equipo1,  " va "  ,puntos_equipo1,  " puntos y "  ,equipo2,  " va "  ,puntos_equipo2,  " puntos.<br> <br>");
+   
+    
+
+  // Para quien es el punto
+  
+   
+
+
+
+    //Bucle del partido
+    
+    
+   for (var cuartos = 1 ;cuartos < 5; cuartos++){
+    document.write ("<br><br><b>En el cuarto ",cuartos," </b><br>");
+        for (var jugadas = 1; jugadas < 21; jugadas++){
+        document.write ("<br><br>En la jugada ",jugadas,"  <br>");
+   
+        var paraequipo = Math.random()
+        if (paraequipo < 0.5){
+        document.write ("Anota ", equipo1 ," <br>");{
+    
+        var cuantosPuntos = Math.random()
+        if (cuantosPuntos < 0.33){
+        document.write (equipo1 , " Marca 1 punto <br>");
+        puntos_equipo1 = puntos_equipo1 + 1;}
+        else if (cuantosPuntos >= 0.33 && cuantosPuntos < 0.66){
+            document.write (equipo1 , " Marca 2 puntos <br>");
+            puntos_equipo1 = puntos_equipo1 + 2;}
+            else if (cuantosPuntos >= 0.66){
+                document.write (equipo1 , " Marca 3 puntos <br>");
+                puntos_equipo1 = puntos_equipo1 + 3;
+      
+            }
+    
+    }
+    }         else {
+        document.write ("Anota ",equipo2," <br>");{
+          
+        var cuantosPuntos = Math.random()
+        if (cuantosPuntos < 0.33){
+              document.write (equipo2, " Marca 1 punto<br>");
+              puntos_equipo2 = puntos_equipo2 + 1;}
+        else if (cuantosPuntos >= 0.33 && cuantosPuntos < 0.66){
+            document.write (equipo2, " Marca 2 puntos<br>");
+            puntos_equipo2 = puntos_equipo2 + 2;}
+            else if (cuantosPuntos >= 0.66){
+                document.write (equipo2, " Marca 3 puntos <br>");
+                puntos_equipo2 = puntos_equipo2 + 3;
+                }
+        
+            }
+    
+    
+        }    
+  
+     
+    }
+
+}
+
+
+
+document.write("<br><br> El partido ha terminado a ", puntos_equipo1, " - ", puntos_equipo2, "<br>");
+</script>
