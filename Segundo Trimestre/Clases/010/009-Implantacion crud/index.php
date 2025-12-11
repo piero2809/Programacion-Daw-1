@@ -4,8 +4,7 @@
 <head>
     <title>El jocarsa - Noticias tecnológicas</title>
     <meta charset="utf-8">
-    <link rel="stylesheet"
-        href="/home/piero/Escritorio/Github/Programacion-Daw-1/Segundo Trimestre/Clases/010/009-Implantacion crud/css/estilo.css">
+    <link rel="stylesheet" href="css/estilo.css">
 </head>
 
 <body>

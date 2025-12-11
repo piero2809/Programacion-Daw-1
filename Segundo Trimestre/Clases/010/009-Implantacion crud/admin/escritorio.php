@@ -6,8 +6,7 @@
 <head>
     <title>El jocarsa - Panel de control</title>
     <meta charset="utf-8">
-    <link rel="stylesheet"
-        href="/home/piero/Escritorio/Github/Programacion-Daw-1/Segundo Trimestre/Clases/010/009-Implantacion crud/admin/css/estilo.css">
+    <link rel="stylesheet" href="css/estilo.css">
 </head>
 
 <body>
@@ -17,6 +16,7 @@
     </nav>
     <main>
         <?php include "inc/read/leer.php"; ?>
+        <a href="?accion=nuevo" id="nuevo">+</a>
     </main>
 </body>
 
