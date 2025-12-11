@@ -7,7 +7,7 @@
     <title>El jocarsa - Panel de control</title>
     <meta charset="utf-8">
     <link rel="stylesheet"
-        href="C:\\Users\\PIEROGABRIELFUNESLAR\\OneDrive - INSTITUTO SUPERIOR DE FORMACION PROFESIONAL CEAC FP\\Escritorio\\Piero Daw 1\\Programacion-Daw-1\\Segundo Trimestre\\Clases\\010\\009-Implantacion crud\\admin\\css\\estilo.css">
+        href="Programacion-Daw-1/Segundo Trimestre/Clases/010/009-Implantacion crud/admin/css/estilo.css">
 </head>
 
 <body>
