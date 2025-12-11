@@ -7,7 +7,7 @@
     <title>El jocarsa - Panel de control</title>
     <meta charset="utf-8">
     <link rel="stylesheet"
-        href="Programacion-Daw-1/Segundo Trimestre/Clases/010/009-Implantacion crud/admin/css/estilo.css">
+        href="/home/piero/Escritorio/Github/Programacion-Daw-1/Segundo Trimestre/Clases/010/009-Implantacion crud/admin/css/estilo.css">
 </head>
 
 <body>
