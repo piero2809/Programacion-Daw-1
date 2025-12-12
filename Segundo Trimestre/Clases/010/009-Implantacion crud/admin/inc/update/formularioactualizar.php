@@ -17,6 +17,9 @@ while ($fila = $resultado->fetch_assoc()) {
     ?>
 
     <form action="inc/update/procesaformulario.php" method="POST">
+        <!-- CORREGID ESTA LINEA -->
+        <input type="hidden" name="id" value="<?= $fila['id'] ?>"> <!-- OJO A ESTE CAMPO OCULTO -->
+        <!-- CORREGID ESTA LINEA -->
         <div class="controlformulario">
             <label for="titulo">Título de la nueva noticia</label>
             <input type="text" name="titulo" id="titulo" value="<?= $fila['titulo'] ?>">
