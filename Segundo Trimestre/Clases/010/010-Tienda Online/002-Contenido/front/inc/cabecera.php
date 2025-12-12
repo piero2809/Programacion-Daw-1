@@ -20,3 +20,23 @@
         </nav>
     </header>
     <main>
+
+        <style>
+            header {
+                text-align: center;
+            }
+
+            nav ul {
+                display: flex;
+                width: 100%;
+                justify-content: center;
+                list-style-type: none;
+                padding: 0px;
+                margin: 0px;
+            }
+
+            nav ul li {
+                padding: 0px;
+                margin: 0px;
+            }
+        </style>
