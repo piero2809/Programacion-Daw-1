@@ -1,0 +1,24 @@
+{
+	"folders": [
+		{
+			"path": "."
+		},
+		{
+			"name": "Bases-de-datos",
+			"path": "../Bases-de-datos"
+		},
+		{
+			"name": "Lenguaje-de-Marcas",
+			"path": "../Lenguaje-de-Marcas"
+		},
+		{
+			"name": "Portafolio",
+			"path": "../Portafolio"
+		},
+		{
+			"name": "CV-Html",
+			"path": "../CV-Html"
+		}
+	],
+	"settings": {}
+}
