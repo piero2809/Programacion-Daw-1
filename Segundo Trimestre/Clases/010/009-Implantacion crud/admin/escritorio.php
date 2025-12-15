@@ -6,7 +6,6 @@
 <head>
   <title>El jocarsa - Panel de control</title>
   <meta charset="utf-8">
-
   <link rel="stylesheet" href="css/estilo.css">
 </head>
 
