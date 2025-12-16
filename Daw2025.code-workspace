@@ -22,6 +22,10 @@
 		{
 			"name": "Retroplay",
 			"path": "../Retroplay"
+		},
+		{
+			"name": "Prompt-Engineering-Guide",
+			"path": "../Prompt-Engineering-Guide"
 		}
 	],
 	"settings": {}
