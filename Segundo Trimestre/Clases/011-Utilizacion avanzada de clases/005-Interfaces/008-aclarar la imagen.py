@@ -16,4 +16,4 @@ for x in range(0,anchura):
 		azul += 20
 		pixel = (rojo,verde,azul)
     
-imagen.save("modificado.jpg")N
+imagen.save("modificado.jpg")
