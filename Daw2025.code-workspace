@@ -18,6 +18,10 @@
 		{
 			"name": "CV-Html",
 			"path": "../CV-Html"
+		},
+		{
+			"name": "Retroplay",
+			"path": "../Retroplay"
 		}
 	],
 	"settings": {}
