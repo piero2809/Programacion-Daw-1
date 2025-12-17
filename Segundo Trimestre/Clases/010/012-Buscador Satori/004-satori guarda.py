@@ -1,22 +1,54 @@
-import requests
-from lxml import html
+import requests									# Importamos requests
+from lxml import html						# importamos HTML
+import mysql.connector					# Importamos MySQL
 
+URL = "https://elpais.com"
 
-url = "https://elpais.com"
+DB_HOST = "localhost"						
+DB_USER = "satori"
+DB_PASSWORD = "Satori123$"
+DB_NAME = "satori"
 
-response = requests.get(url, timeout=10)
+response = requests.get(URL, timeout=10, headers={
+    "User-Agent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 Chrome/120 Safari/537.36"
+})
 response.raise_for_status()
 
 tree = html.fromstring(response.content)
 
-# 1. Web title
-title = tree.xpath("//title/text()")
+title_list = tree.xpath("//title/text()")										# Saco el titulo
+web_title = title_list[0].strip() if title_list else None
+
+
+html_content = response.text[:255] 															# HTML completo
+
 print("WEB TITLE:")
-print(title[0] if title else "No title found")
+print(web_title or "No title found")
 
-# 2. Links href
-print("\nLINKS:")
-links = tree.xpath("//a/@href")
+conn = mysql.connector.connect(
+    host=DB_HOST,
+    user=DB_USER,
+    password=DB_PASSWORD,
+    database=DB_NAME,
+    charset="utf8mb4",
+    use_unicode=True
+)																													# Guardar a MySQL
 
-for i, href in enumerate(links, start=1):
-    print(f"{i}: {href}")
+try:
+    cur = conn.cursor()
+
+    sql = """
+        INSERT INTO paginas (titulo, url, contenido)
+        VALUES (%s, %s, %s)
+    """
+    cur.execute(sql, (web_title, URL, html_content))
+    conn.commit()																				# Inserto
+
+    print(f"\nOK: guardado en MySQL. ID insertado: {cur.lastrowid}")
+
+finally:
+    try:
+        cur.close()
+    except Exception:
+        pass
+    conn.close()
