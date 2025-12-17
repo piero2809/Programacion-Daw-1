@@ -6,57 +6,12 @@
 </head>
 
 <body>
-    <?php
-    // Primero me conecto a la base de datos
-    // Esto es común para todo el archivo
-    $host = "localhost";
-    $user = "tiendaonlinedamdaw";
-    $pass = "Tiendaonlinedamdaw123$";
-    $db = "tiendaonlinedamdaw";
-
-    $conexion = new mysqli($host, $user, $pass, $db);
-    ?>
-
+    <?php include "inc/conexion_bd.php"; ?>
     <nav>
-        <?php
-        // Ahora lo que quiero es un listado de las tablas en la base de datos
-        $resultado = $conexion->query("
-          SHOW TABLES;
-        ");
-        while ($fila = $resultado->fetch_assoc()) {
-            echo '<a href="?tabla=' . $fila['Tables_in_' . $db] . '">' . $fila['Tables_in_' . $db] . '</a>';
-        }
-        ?>
+        <?php include "controladores/poblar_menu.php" ?>
     </nav>
     <main>
-        <table>
-            <?php
-            // PRIMERO CREO LAS CABECERAS //////////////////
-            $resultado = $conexion->query("
-          SELECT * FROM " . $_GET['tabla'] . " LIMIT 1;
-        ");	// SOLO QUIERO UN ELEMENTO !!!!!!!!!!!!!!!!
-            while ($fila = $resultado->fetch_assoc()) {
-                echo "<tr>";
-                foreach ($fila as $clave => $valor) {
-                    echo "<th>" . $clave . "</th>";		// En lugar de enseñarme el valor, enseñame la clave
-                }
-                echo "</tr>";
-            }
-            ?>
-            <?php
-            // Y LUEGO EL RESTO DE DATOS //////////////
-            $resultado = $conexion->query("
-          SELECT * FROM " . $_GET['tabla'] . ";
-        ");
-            while ($fila = $resultado->fetch_assoc()) {
-                echo "<tr>";
-                foreach ($fila as $clave => $valor) {
-                    echo "<td>" . $valor . "</td>";
-                }
-                echo "</tr>";
-            }
-            ?>
-        </table>
+        <?php include "controladores/leer.php" ?>
     </main>
 </body>
 
