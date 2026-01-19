@@ -1,6 +1,7 @@
 {
 	"folders": [
 		{
+			"name": "Programacion-Daw-1",
 			"path": "."
 		},
 		{
@@ -28,10 +29,8 @@
 			"path": "../Proyecto-Intermodular2025-2026"
 		},
 		{
+			"name": "JV",
 			"path": "../JV"
-		},
-		{
-			"path": "../Retroplay_Local"
 		}
 	],
 	"settings": {}
