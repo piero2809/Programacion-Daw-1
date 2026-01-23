@@ -12,6 +12,7 @@ pyvenv.cfg
 .venv
 pip-selfcheck.json
 isympy.1
-003-Bases\ de\ datos\ Vectoriales/chroma_data/
-003-Bases\ de\ datos\ Vectoriales/videotutoriales/
+
+**/chroma_data/
+**/videotutoriales/
 # End of https://www.toptal.com/developers/gitignore/api/venv
