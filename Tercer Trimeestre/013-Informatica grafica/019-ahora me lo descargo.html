@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Photo Editor Pro</title>
+    <style>
+        /* Modern CSS Variables for easy editing */
+        :root {
+            --bg-dark: #1e1e1e;
+            --sidebar-bg: #2d2d2d;
+            --accent-color: #0078d4;
+            --accent-hover: #2b88d8;
+            --text-color: #e0e0e0;
+            --border-color: #3f3f3f;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--bg-dark);
+            color: var(--text-color);
+            display: flex;
+            height: 100vh;
+            overflow: hidden;
+        }
+
+        /* Sidebar Styling */
+        aside {
+            width: 260px;
+            background-color: var(--sidebar-bg);
+            border-right: 1px solid var(--border-color);
+            display: flex;
+            flex-direction: column;
+            padding: 20px;
+            box-shadow: 2px 0 10px rgba(0, 0, 0, 0.3);
+            z-index: 10;
+        }
+
+        h2 {
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+            font-weight: 400;
+            letter-spacing: 1px;
+            color: var(--accent-color);
+        }
+
+        .tool-group {
+            margin-bottom: 30px;
+        }
+
+        label {
+            font-size: 12px;
+            text-transform: uppercase;
+            color: #888;
+            margin-bottom: 10px;
+            display: block;
+        }
+
+        /* Button Styling */
+        button {
+            background-color: var(--accent-color);
+            color: white;
+            border: none;
+            padding: 12px 20px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: 600;
+            width: 100%;
+            transition: background 0.2s, transform 0.1s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        button:hover {
+            background-color: var(--accent-hover);
+        }
+
+        button:active {
+            transform: scale(0.98);
+        }
+
+        /* Main Workspace */
+        main {
+            flex-grow: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 40px;
+            position: relative;
+            /* Checkerboard pattern for transparency look */
+            background-image:
+                linear-gradient(45deg, #252525 25%, transparent 25%),
+                linear-gradient(-45deg, #252525 25%, transparent 25%),
+                linear-gradient(45deg, transparent 75%, #252525 75%),
+                linear-gradient(-45deg, transparent 75%, #252525 75%);
+            background-size: 20px 20px;
+            background-position: 0 0, 0 10px, 10px -10px, -10px 0px;
+        }
+
+        canvas {
+            background-color: white;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+            max-width: 100%;
+            max-height: 100%;
+            border: 1px solid #000;
+        }
+
+        .status-bar {
+            position: absolute;
+            bottom: 0;
+            left: 260px;
+            right: 0;
+            background: var(--sidebar-bg);
+            padding: 5px 20px;
+            font-size: 11px;
+            color: #888;
+            border-top: 1px solid var(--border-color);
+        }
+    </style>
+</head>
+
+<body>
+
+    <aside>
+        <h2>PHOTO EDITOR</h2>
+
+        <div class="tool-group">
+            <label>Export Options</label>
+            <button id="saveBtn">
+                <svg width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                    <path
+                        d="M2 1a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H2zm10 11H4v-1h8v1zm0-3H4V8h8v1zm0-3H4V5h8v1z" />
+                </svg>
+                Guardar Imagen
+            </button>
+        </div>
+
+        <div class="tool-group">
+            <label>Canvas Info</label>
+            <p

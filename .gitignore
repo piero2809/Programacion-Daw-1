@@ -1,0 +1,29 @@
+### venv ###
+# Virtualenv
+# http://iamzed.com/2009/05/07/a-primer-on-virtualenv/
+.Python
+[Bb]in
+[Ii]nclude
+[Ll]ib
+[Ll]ib64
+[Ll]ocal
+[Ss]cripts
+pyvenv.cfg
+.venv
+pip-selfcheck.json
+isympy.1
+**/LFM2.5-1.2B-Thinking-jvc-lora-cpu/
+**/LFM2.5-1.2B-Thinking-jvc-lora-cpu-merged/
+**/chroma_data/
+**/videotutoriales/
+**/venv/
+**/env/
+*.safetensors
+*.bin
+*.so.*
+*.so
+**/chroma_data/
+*.sqlite3
+__pycache__/
+.DS_Store
+# End of https://www.toptal.com/developers/gitignore/api/venv

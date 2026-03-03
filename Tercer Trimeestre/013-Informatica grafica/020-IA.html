@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Canvas Pro | Creative Studio</title>
+    <style>
+        :root {
+            --bg-deep: #121212;
+            --bg-panel: #1e1e1e;
+            --bg-header: #252525;
+            --accent: #00a8ff;
+            --accent-hover: #00d2ff;
+            --text-main: #e1e1e1;
+            --text-dim: #888;
+            --border: #333;
+            --radius: 6px;
+        }
+
+        body {
+            margin: 0;
+            background-color: var(--bg-deep);
+            color: var(--text-main);
+            font-family: 'Inter', -apple-system, sans-serif;
+            display: flex;
+            height: 100vh;
+            overflow: hidden;
+        }
+
+        /* --- LEFT TOOLBAR --- */
+        .toolbar {
+            width: 60px;
+            background-color: var(--bg-panel);
+            border-right: 1px solid var(--border);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px 0;
+            gap: 15px;
+            z-index: 100;
+        }
+
+        .tool-btn {
+            width: 40px;
+            height: 40px;
+            border-radius: var(--radius);
+            border: none;
+            background: transparent;
+            color: var(--text-dim);
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            transition: all 0.2s;
+        }
+
+        .tool-btn:hover {
+            background: var(--border);
+            color: var(--text-main);
+        }
+
+        .tool-btn.active {
+            background: var(--accent);
+            color: white;
+        }
+
+        /* --- RIGHT PROPERTIES PANEL --- */
+        .properties {
+            width: 280px;
+            background-color: var(--bg-panel);
+            border-left: 1px solid var(--border);
+            display: flex;
+            flex-direction: column;
+            padding: 20px;
+            gap: 25px;
+        }
+
+        .prop-group {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .prop-label {
+            font-size: 11px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--text-dim);
+        }
+
+        /* Custom Range Slider Styling */
+        input[type="range"] {
+            -webkit-appearance: none;
+            appearance: none;
+            background: var(--border);
+            height: 4px;
+            border-radius: 2px;
+            outline: none;
+        }
+
+        input[type="range"]::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            width: 15px;
+            height: 15px;
+            background: var(--accent);
+            border-radius: 50%;
+            cursor: pointer;
+        }
+
+        /* Custom Color Picker Styling */
+        .color-wrapper {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            background: var(--bg-deep);
+            padding: 10px;
+            border-radius: var(--radius);
+            border: 1px solid var(--border);
+        }
+
+        input[type="color"] {
+            border: none;
+            width: 40px;
+            height: 40px;
+            background: none;
+            cursor: pointer;
+        }
+
+        /* --- MAIN WORKSPACE --- */
+        main {
+            flex-grow: 1;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            background: #282828;
+            /* Checkerboard grid background */
+            background-image: linear-gradient(45deg, #222 25%, transparent 25%),
+                linear-gradient(-45deg, #222 25%, transparent 25%),
+                linear-gradient(45deg, transparent 75%, #222 75%),
+                linear-gradient(-45deg, transparent 75%, #222 75%);
+            background-size: 20px 20px;
+            overflow: auto;
+        }
+
+        header {
+            height: 50px;
+            background-color: var(--bg-header);
+            border-bottom: 1px solid var(--border);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 20px;
+        }
+
+        .canvas-area {
+            flex-grow: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 50px;
+        }
+
+        canvas {
+            background-color: white;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6);
+            cursor: crosshair;
+        }
+
+        .btn-primary {
+            background: var(--accent);
+            color: white;
+            border: none;
+            padding: 8px 16px;
+            border-radius: var(--radius);
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+
+        .btn-primary:hover {
+            background: var(--accent-hover);
+        }
+
+        .status-bar {
+            height: 25px;
+            background: var(--accent);
+            color: white;
+            font-size: 10px;
+            display: flex;
+            align-items: center;
+            padding: 0 15px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+
+    <nav class="toolbar">
+        <button class="tool-btn active" title="Pincel">🖌️</button>
+        <button class="tool-btn" title="Borrador" onclick="setToEraser()">🧽</button>
+        <button class="tool-btn" title="Limpiar Todo" onclick="clearCanvas()">🗑️</button>
+        <div style="flex-grow:1"></div>
+        <button class="tool-btn" title="Ajustes">⚙️</button>
+    </nav>
+
+    <main>
+        <header>
+            <span style="font-weight: bold; font-size: 14px;">PRO_STUDIO_V1.JPG @ 100%</span>
+            <button class="btn-primary" id="saveBtn">Exportar Imagen</button>
+        </header>
+
+        <div class="canvas-area">
+            <canvas id="editorCanvas"></canvas>
+        </div>
+
+        <div class="status-bar">
+            READY | X: 0px Y: 0px | RGB(255, 255, 255)
+        </div>
+    </main>
+
+    <aside class="properties">
+        <div class="prop-group">
+            <label class="prop-label">Color de Trazo</label>
+            <div class="color-wrapper">
+                <input type="color" id="selectorcolor" value="#00a8ff">
+                <span id="hexValue" style="font-family: monospace; font-size: 12px;">#00A8FF</span>
+            </div>
+        </div>
+
+        <div class="prop-group">
+            <div style="display: flex; justify-content: space-between;">
+                <label class="prop-label">Grosor</label>
+                <span id="sizeVal" style="font-size: 12px; color: var(--accent);">5px</span>
+            </div>
+            <input type="range" id="grosortrazo" min="1" max="100" value="5">
+        </div>
+
+        <div class="prop-group">
+            <label class="prop-label">Opacidad</label>
+            <input type="range" id="opacidad" min="1" max="100" value="100">
+        </div>
+
+        <hr style="border: 0; border-top: 1px solid var(--border); width: 100%;">
+
+        <div class="prop-group">
+            <label class="prop-label">Info del Documento</label>
+            <p style="font-size: 12px; color: var(--text-dim); line-height: 1.6;">
+                Dimensiones: 800 x 600<br>
+                PPI: 72<br>
+                Formato: Canvas HTML5
+            </p>
+        </div>
+    </aside>
+
+    <script>
+        const lienzo = document.getElementById("editorCanvas");
+        const ctx = lienzo.getContext("2d");
+        const colorInput = document.getElementById("selectorcolor");
+        const grosorInput = document.getElementById("grosortrazo");
+        const sizeLabel = document.getElementById("sizeVal");
+        const hexLabel = document.getElementById("hexValue");
+
+        // Initial Canvas Setup
+        lienzo.width = 800;
+        lienzo.height = 600;
+        ctx.fillStyle = "white";
+        ctx.fillRect(0, 0, lienzo.width, lienzo.height);
+
+        let dibujando = false;
+        let lastX = 0;
+        let lastY = 0;
+
+        // Visual feedback for settings
+        colorInput.oninput = () => hexLabel.innerText = colorInput.value.toUpperCase();
+        grosorInput.oninput = () => sizeLabel.innerText = grosorInput.value + "px";
+
+        // Logic
+        lienzo.onmousedown = (e) => {
+            dibujando = true;
+            [lastX, lastY] = [e.offsetX, e.offsetY];
+        };
+
+        lienzo.onmousemove = (e) => {
+            if (!dibujando) return;
+
+            ctx.beginPath();
+            ctx.moveTo(lastX, lastY);
+            ctx.lineTo(e.offsetX, e.offsetY);
+
+            // Pro Styling for the brush
+            ctx.strokeStyle = colorInput.value;
+            ctx.lineWidth = grosorInput.value;
+            ctx.lineCap = "round"; // Makes strokes smooth
+            ctx.lineJoin = "round";
+
+            // This adds a subtle "Photoshop" airbrush feel
+            ctx.shadowBlur = 1;
+            ctx.shadowColor = colorInput.value;
+
+            ctx.stroke();
+            [lastX, lastY] = [e.offsetX, e.offsetY];
+        };
+
+        window.onmouseup = () => dibujando = false;
+
+        function clearCanvas() {
+            if (confirm("¿Seguro que quieres borrar todo?")) {
+                ctx.fillStyle = "white";
+                ctx.fillRect(0, 0, lienzo.width, lienzo.height);
+            }
+        }
+
+        function setToEraser() {
+            colorInput.value = "#ffffff";
+            hexLabel.innerText = "#FFFFFF";
+        }
+
+        document.getElementById("saveBtn").onclick = function () {
+            const link = document.createElement('a');
+            link.download = 'masterpiece.jpg';
+            link.href = lienzo.toDataURL("image/jpeg", 0.9);
+            link.click();
+        };
+    </script>
+</body>
+
+</html>

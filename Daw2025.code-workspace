@@ -1,0 +1,37 @@
+{
+	"folders": [
+		{
+			"name": "Programacion-Daw-1",
+			"path": "."
+		},
+		{
+			"name": "Bases-de-datos",
+			"path": "../Bases-de-datos"
+		},
+		{
+			"name": "Lenguaje-de-Marcas",
+			"path": "../Lenguaje-de-Marcas"
+		},
+		{
+			"name": "Portafolio",
+			"path": "../Portafolio"
+		},
+		{
+			"name": "CV-Html",
+			"path": "../CV-Html"
+		},
+		{
+			"name": "Retroplay",
+			"path": "../Retroplay"
+		},
+		{
+			"name": "Proyecto-Intermodular2025-2026",
+			"path": "../Proyecto-Intermodular2025-2026"
+		},
+		{
+			"name": "JV",
+			"path": "../JV"
+		}
+	],
+	"settings": {}
+}

@@ -1,0 +1,6 @@
+nombre = "Piero";
+
+print (nombre)
+
+
+

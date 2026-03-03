@@ -1,0 +1,53 @@
+#### 1.-Introducción breve y contextualización - 25% de la nota del ejercicio
+Una variable es un contenedor de información que almacena un valor en especifico, esta puede ir variando de acuerdo a lo que necesitemos que se guarde en ella. Estas se etiquetan desde un inicio y quedan definidas asi hasta el final, lo unico que puede cambiar es su contenido
+
+Por otro lado, para poder imprimir o mostrar las variables en pantalla se usa el comando "document.write", este sirve como una salida.
+
+
+#### 2.-Desarrollo detallado y preciso - 25% de la nota del ejercicio
+Primero se declaran las variables, estas son "Contenedores" de información. Pueden contener tanto números como letras
+
+Luego se les asigna un valor a cada una de ellas, en este caso a la variable edad se le declara que vale 30, a la variable nombre se le declara "Juan Perez" y a la variable equipo "Juan Perez"
+
+Luego se imprimen el valor de las variables usando "Document.write", este sirve como una salida de codigo en HTML
+
+Este es un ejemplo de como se crean y se definen las variables
+					
+                                                               ↓
+```
+var nombre = "Piero"              // Se crea y se define la variable nombre como "Piero"
+Var edad = 19                    // Se crea y se define la variable edad como 19
+Var deporte = "Basketball"      // Se crea y se define la variable deporte como "Basketball"
+```
+
+#### 3.-Aplicación práctica - 25% de la nota del ejercicio
+Para mostrar estos conceptos, usaremos el siguiente ejemplo:
+
+*El ejercicio consiste en declarar tres variables: edad, nombre y equipo, inicializándolas con los valores 30, "Juan Pérez" y "Los Ángeles Lakers", respectivamente. Luego, se debe imprimir en pantalla la frase compuesta: “Mi nombre es (nombre) . Tengo (edad) años y soy miembro del equipo (equipo)”. La restricción principal es que solo se pueden utilizar las variables mencionadas y no se permite escribir literales directamente dentro de las sentencias de impresión.*
+
+```
+/*
+Programa hecho por 
+v0.1 Piero Funes Larios
+Primer ejercicio propuesto v1.0
+*/
+
+
+//Declaracion de variables
+	var edad
+	var nombre
+	var equipo
+
+//Inicialización de variables
+	var edad = 30
+	var nombre = "Juan Perez"
+	var equipo = "Los Angeles Lakers"
+
+//Impresión o salida de información
+document.write("Mi nombre es ", nombre," tengo " ,edad," anios y soy miembro de ", equipo,".<br>")
+```
+
+
+
+#### 4.-Conclusión breve - 25% de la nota del ejercicio
+Para finalizar me gustaría recalcar el valor de las variables en el entorno de la programación, ya que estas permiten al usuario, almacenar y manipular de manera dinámica los valores que se contienen en estas. A través del ejercicio propuesto, se muestra el como declarar las variables, modificar su valor y luego el como imprimirlas. Esto demuestra su relevancia en todo el entorno de la programación, ya que sin tener conocimiento de como definir, manipular e imprimir variables no se podría avanzar más en este universo informático.

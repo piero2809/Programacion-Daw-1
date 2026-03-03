@@ -1,0 +1,41 @@
+<script>
+/*
+Este programa clasifica a las plantas segun su altura
+0.1 Piero Funes
+
+*/
+// En este caso no hay librerias que importar
+
+//declaro variables del programa
+
+var altura_planta ;
+var etapa_crecimiento = "";
+
+//aqui vendrian las funciones o clases
+
+//Método principal 
+    //introduzco datos
+         altura_planta= prompt("Introduce la altura de la planta en cm");
+
+
+    //realizo calculos
+
+    if (altura_planta < 10){
+        etapa_crecimiento = "la planta es un brote"
+    } else if (altura_planta >=10 && altura_planta < 30){
+        etapa_crecimiento = "La planta es una planta joven"
+    } else if  (altura_planta >=30 && altura_planta < 100){
+        etapa_crecimiento = "La planta es una planta adulta"
+    } else{
+        etapa_crecimiento = "La planta es un arbol grande"
+    }
+    
+    //ofrezco resultados
+
+    document.write (etapa_crecimiento,"con una altura de ",altura_planta," cm");
+
+
+
+
+ 
+</Script>

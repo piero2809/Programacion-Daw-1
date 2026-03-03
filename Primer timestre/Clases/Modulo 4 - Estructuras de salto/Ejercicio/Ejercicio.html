@@ -1,0 +1,42 @@
+<script>
+    /*
+    Programa de geestion de recursos inf
+    v0.1 Piero Funes
+    Este programa escala tus recursos inf
+    */
+    
+    //Se importan las librerías (No hay librerias que importar
+
+    //Declaración de variables
+    var memoria_ram = 8
+
+    //Declaración de clases y funciones
+    function escalarRecursos(o1, o2, op){
+        if (op == "aumentar"){
+            return o1*1+o2*2
+        } else if (op == "reducir")
+            return o1-o2
+        else if (op == "escalar"){
+            return o1*o2
+        }else if (op == "optimizar") {
+            return o1/o2;
+            }
+        }
+    
+    //función principal 
+         var operación = prompt ("Introduce la operación que deseas realizar(aumentar, reducir, escalar , optimizar)");
+         var parametro = prompt ("introduce el factor a aplicar");
+
+    //realizción de cálculos
+    var resultado = escalarRecursos(
+    memoria_ram, 
+    parametro, 
+    operación);
+
+    //ofrecimiento de resultados
+    document.write (resultado);
+
+
+
+
+</script>

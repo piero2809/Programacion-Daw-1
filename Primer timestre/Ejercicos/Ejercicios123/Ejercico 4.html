@@ -1,0 +1,41 @@
+<script>
+
+/*
+Programa de calculo de tiempo y equipos para un torneo de basketball
+v0.1 Piero Funes 2025
+*/
+
+
+
+
+//No se importan librerías por que no se requieres
+
+
+//declaracion de variables
+var cantidad_jugadores;
+var cantidad_equipos; 
+var tiempo_total;
+
+
+//Declaracion de constantes
+const NumeroDeJugadores = 5;
+const DuracionMinutos = 40;
+
+
+//Cuantos equipos se pueden formar
+var cantidad_jugadores = prompt("Cuantos jugadores hay: ");
+
+cantidad_equipos = (cantidad_jugadores/NumeroDeJugadores);
+cantidad_equipos= Math.floor (cantidad_equipos);
+document.write("se pueden formar ",cantidad_equipos," equipos <br>");
+
+//Cuanto tiempo durará todo el torneo
+tiempo_total = (cantidad_equipos / 2);
+tiempo_total = Math.ceil (tiempo_total);
+tiempo_total = (tiempo_total * DuracionMinutos);
+
+document.write ("<br> Se jugarán ",tiempo_total," minutos");
+
+
+
+</script>

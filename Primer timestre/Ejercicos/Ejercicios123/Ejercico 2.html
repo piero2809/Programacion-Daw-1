@@ -1,0 +1,40 @@
+<script>
+
+/*
+Programa de uso de variables
+v0.1 Piero Funes 
+
+*/
+
+
+//No se importan librerias por que en este caso no hay librerías
+// Declaración de variables
+
+var edad = 47; //tipo de Cadena 
+var puntos_juego = 0 //Tipo de dato entero
+var tiempo_restante = 3.45 // Tipo de dato decimal
+var edad_entera = edad *1 //Declaro que es un número
+
+//impresión de variables
+document.write(edad, " anios");
+//Concatenación de variable
+document.write("<br> ",edad,"  ",edad," " )
+
+
+//Operación de variable
+
+edad_entera = edad_entera * 2 //Lo multiplico por 2 
+
+document.write ("<br>" ,edad_entera, "")
+
+
+//Se suman los 10 puntos
+document.write ("<br>",puntos_juego," puntos")
+puntos_juego = puntos_juego + 10
+document.write ("<br>" ,puntos_juego, " puntos")
+
+//Conversión de minutos a segundos.
+
+tiempo_restante = ((tiempo_restante - 3) * 100 ) + 180 
+document.write ("<br>" ,tiempo_restante, " segundos")
+</script>
